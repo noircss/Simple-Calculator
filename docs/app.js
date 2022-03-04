@@ -2,7 +2,6 @@
 const output = document.querySelector(".output");
 const result = document.querySelector(".result");
 const keys = document.querySelectorAll("button");
-
 //eventlistener
 keys.forEach(key=>{
     key.addEventListener("click",calculate);
@@ -15,6 +14,7 @@ function calculate(){
         result.innerText = "0";
         result.style.animation = "";
         output.style.animation = "";
+        alert('Cleared');
         return;
     }
 
@@ -30,12 +30,8 @@ function calculate(){
         result.style.animationFillMode = "forwards";
         output.style.animationFillMode = "forwards";
     }
-
     else{
         output.textContent += buttonText;
         return;
     }
-
-  
 }
-
