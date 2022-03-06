@@ -2,6 +2,22 @@
 const output = document.querySelector(".output");
 const result = document.querySelector(".result");
 const keys = document.querySelectorAll("button");
+document.addEventListener("DOMContentLoaded", function(event){
+    $(document).keyup(function yes(event){
+           if (event.key === 'Enter') {
+           output.textContent = output.textContent.substr(0,output.textContent.length-1);
+           result.innerText = eval(output.innerText);
+           result.style.animation = "big 0.5s ease-in-out";
+           output.style.animation = "small 0.5s ease-in-out";
+           result.style.animationFillMode = "forwards";
+           output.style.animationFillMode = "forwards";
+       }
+       else{
+           output.textContent += buttonText;
+           return;
+       }
+       })
+   })
 //eventlistener
 keys.forEach(key=>{
     key.addEventListener("click",calculate);
@@ -32,18 +48,4 @@ function calculate(){
         output.textContent += buttonText;
         return;
     }
-    $("button").keyup(function yes(event) {
-        if (event.which === 13) {
-        output.textContent = output.textContent.substr(0,output.textContent.length-1);
-        result.innerText = eval(output.innerText);
-        result.style.animation = "big 0.5s ease-in-out";
-        output.style.animation = "small 0.5s ease-in-out";
-        result.style.animationFillMode = "forwards";
-        output.style.animationFillMode = "forwards";
-    }
-    else{
-        output.textContent += buttonText;
-        return;
-    }
-    })
 }
